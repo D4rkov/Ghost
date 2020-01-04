@@ -25,15 +25,20 @@ namespace Ghost
         }
         void OnGhost(CommandArgs args)
         {
-            int i = Projectile.NewProjectile(args.Player.LastNetPosition, Microsoft.Xna.Framework.Vector2.Zero, 170, 0, 0);
+            //int i = Projectile.NewProjectile(args.Player.LastNetPosition, Microsoft.Xna.Framework.Vector2.Zero, 170, 0, 0);
+            int i = Projectile.NewProjectile(args.Player.LastNetPosition.X, args.Player.LastNetPosition.Y, Vector2.Zero.X, Vector2.Zero.Y, 0, 0, 0, 16, 0, 0);
             Main.projectile[i].timeLeft = 0;
-            NetMessage.SendData(27, -1, -1, null, i);
+            //NetMessage.SendData(27, -1, -1, null, i);
+            NetMessage.SendData((int)PacketTypes.ProjectileNew, -1, -1, "", i);
             args.TPlayer.active = !args.TPlayer.active;
-            NetMessage.SendData(14, -1, args.Player.Index, null, args.Player.Index, args.TPlayer.active.GetHashCode());
+            //NetMessage.SendData(14, -1, args.Player.Index, null, args.Player.Index, args.TPlayer.active.GetHashCode());
+            NetMessage.SendData((int)PacketTypes.PlayerActive, -1, args.Player.Index, "", args.Player.Index, args.TPlayer.active.GetHashCode());
             if (args.TPlayer.active)
             {
-                NetMessage.SendData(4, -1, args.Player.Index, null, args.Player.Index);
-                NetMessage.SendData(13, -1, args.Player.Index, null, args.Player.Index);
+                //NetMessage.SendData(4, -1, args.Player.Index, null, args.Player.Index);
+                NetMessage.SendData((int)PacketTypes.PlayerInfo, -1, args.Player.Index, "", args.Player.Index);
+                //NetMessage.SendData(13, -1, args.Player.Index, null, args.Player.Index);
+                NetMessage.SendData((int)PacketTypes.PlayerUpdate, -1, args.Player.Index, "", args.Player.Index);
             }
             args.Player.SendSuccessMessage($"{(args.TPlayer.active ? "Dis" : "En")}abled Vanish.");
         }
