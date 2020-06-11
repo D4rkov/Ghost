@@ -11,9 +11,15 @@ A plugin for TShock that allows admins to become invisible to their players.
 
 What is actually happening though, is far more complicated. This kind of invisibilty requires no buffs, and is undetectable by people with modded clients (mostly). You can also chat, use commands, whisper people, and you won't appear on the player list all at the same time while using this plugin. It is toggleable by using the "/ghost" command and having the "ghost.ghost" permission.
 
-## User Instructions
+## How to Install
+1. Put the .dll into the `\ServerPlugins\` folder.
+2. Restart the server.
+3. Give your desired group the `spooky.ghost` permission.
+
+Done!
+
+## How to Use
 - type `/ghost` or `/vanish` to toggle it on or off
-- May spook unsuspecting players, use at your own risk!
 
 ## Known Issues
 This plugin works for the most part, but there are a few caveats:
