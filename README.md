@@ -4,13 +4,6 @@ A plugin for TShock that allows admins to become invisible to their players.
 - Originally made by DannyDan77
 - Updated for Terraria 1.4 by moisterrific
 
-## Original plugin description
-https://github.com/DannyDan77/Ghost
-
-A plugin for TShock that allows admins to become invisible to their players.
-
-What is actually happening though, is far more complicated. This kind of invisibilty requires no buffs, and is undetectable by people with modded clients (mostly). You can also chat, use commands, whisper people, and you won't appear on the player list all at the same time while using this plugin. It is toggleable by using the "/ghost" command and having the "ghost.ghost" permission.
-
 ## How to Install
 1. Put the .dll into the `\ServerPlugins\` folder.
 2. Restart the server.
@@ -36,3 +29,10 @@ This plugin works for the most part, but there are a few caveats:
 - You can still chat with the rest of the players as usual.
 - You can teleport to other players, however chunks of your world will not fully load.
 - Your character will not show up in the online players/PvP grid style GUI (Mobile).
+
+## Legacy plugin description
+https://github.com/DannyDan77/Ghost
+
+A plugin for TShock that allows admins to become invisible to their players.
+
+What is actually happening though, is far more complicated. This kind of invisibilty requires no buffs, and is undetectable by people with modded clients (mostly). You can also chat, use commands, whisper people, and you won't appear on the player list all at the same time while using this plugin. It is toggleable by using the "/ghost" command and having the "ghost.ghost" permission.
