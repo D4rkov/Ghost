@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Reflection;
 using Terraria;
@@ -26,7 +26,7 @@ namespace Ghost
         }
         void OnGhost(CommandArgs args)
         {
-            int i = Projectile.NewProjectile(args.Player.LastNetPosition.X, args.Player.LastNetPosition.Y, Vector2.Zero.X, Vector2.Zero.Y, 0, 0, 0, 16, 0, 0);
+            int i = Projectile.NewProjectile(Projectile.GetNoneSource(),args.Player.LastNetPosition.X, args.Player.LastNetPosition.Y, Vector2.Zero.X, Vector2.Zero.Y, 0, 0, 0, 16, 0, 0);
             Main.projectile[i].timeLeft = 0;
             NetMessage.SendData((int)PacketTypes.ProjectileNew, -1, -1, null, i);
             args.TPlayer.active = !args.TPlayer.active;
@@ -36,7 +36,7 @@ namespace Ghost
                 NetMessage.SendData((int)PacketTypes.PlayerInfo, -1, args.Player.Index, null, args.Player.Index);
                 NetMessage.SendData((int)PacketTypes.PlayerUpdate, -1, args.Player.Index, null, args.Player.Index);
             }
-            args.Player.SendSuccessMessage($"{(args.TPlayer.active ? "Dis" : "En")}abled Vanish.");
+            args.Player.SendSuccessMessage("{0}abled Ghost.", args.TPlayer.active ? "Dis" : "En");
         }
 
         protected override void Dispose(bool disposing)
