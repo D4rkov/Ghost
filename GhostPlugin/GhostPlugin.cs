@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Reflection;
-using Terraria;
-using Terraria.Localization;
+﻿using Terraria;
 using TerrariaApi.Server;
 using TShockAPI;
 using Microsoft.Xna.Framework;
@@ -14,19 +10,19 @@ namespace Ghost
     {
         public override string Name => "Ghost";
 
-        public override string Author => "SirApples";
+        public override string Author => "Darkov";
 
         public override string Description => "A plugin that allows admins to become completely invisible to players.";
 
-        public override Version Version => Assembly.GetExecutingAssembly().GetName().Version;
+        public override Version Version => new Version(1, 2, 1, 0);
 
         public override void Initialize()
         {
-            Commands.ChatCommands.Add(new Command("spooky.ghost", OnGhost, "ghost", "vanish"));
+            Commands.ChatCommands.Add(new Command("ghost.ghost", OnGhost, "ghost", "vanish"));
         }
         void OnGhost(CommandArgs args)
         {
-            int i = Projectile.NewProjectile(Projectile.GetNoneSource(),args.Player.LastNetPosition.X, args.Player.LastNetPosition.Y, Vector2.Zero.X, Vector2.Zero.Y, 0, 0, 0, 16, 0, 0);
+            int i = Projectile.NewProjectile(Projectile.GetNoneSource(), args.Player.LastNetPosition.X, args.Player.LastNetPosition.Y, Vector2.Zero.X, Vector2.Zero.Y, 0, 0, 0, 16, 0, 0);
             Main.projectile[i].timeLeft = 0;
             NetMessage.SendData((int)PacketTypes.ProjectileNew, -1, -1, null, i);
             args.TPlayer.active = !args.TPlayer.active;

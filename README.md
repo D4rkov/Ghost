@@ -3,11 +3,12 @@ A plugin for TShock that allows admins to become invisible to their players.
 
 - Originally made by DannyDan77
 - Updated for Terraria 1.4 by moisterrific
+- Updated .dll build by Darkov
 
 ## How to Install
 1. Put the .dll into the `\ServerPlugins\` folder.
 2. Restart the server.
-3. Give your desired group the `spooky.ghost` permission.
+3. Give your desired group the `ghost.ghost` permission.
 
 Done!
 
